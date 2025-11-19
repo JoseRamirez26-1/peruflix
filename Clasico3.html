@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rápido y furioso: Reto Tokio - PERUFLIX</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .hero {
+      position: relative;
+      min-height: 150vh;
+      background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 40%, transparent 100%),
+                  url('https://image.tmdb.org/t/p/original/9OYC68a3NH5ySyTBjLQDzxhApMi.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+    }
+
+    .info {
+      max-width: 650px;
+    }
+
+    .titulo {
+      font-size: clamp(50px, 9vw, 100px);
+      font-weight: 900;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .meta {
+      color: #46d369;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .sinopsis {
+      font-size: clamp(18px, 3vw, 26px);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .btn-play {
+      background: white;
+      color: black;
+      padding: 16px 50px;
+      border: none;
+      border-radius: 8px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      transition: 0.3s;
+    }
+
+    .btn-play:hover {
+      background: #e50914;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* VIDEO LOCAL JUSTO DEBAJO (como en tu imagen) */
+    .reproductor {
+      width: 95%;
+      max-width: 1400px;
+      margin: 60px auto;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(229,9,20,0.7);
+    }
+
+    video {
+      width: 100%;
+      display: block;
+    }
+
+    .btn-volver {
+      display: block;
+      margin: 40px auto;
+      padding: 18px 70px;
+      background: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 24px;
+      transition: 0.3s;
+      width: 500px;
+      text-align: center;
+    }
+
+    .btn-volver:hover {
+      background: #e50914;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="info">
+    <h1 class="titulo">Rápido y furioso: Reto Tokio</h1>
+    <div class="meta">2006 • 1h 44min • Acción, Crimen, Drama, Suspenso</div>
+    <p class="sinopsis">
+      Shaun Boswell es un chico que no acaba de encajar en ningún grupo.
+      En el instituto es un solitario, su única conexión con el mundo de indiferencia que le rodea es a través de las carreras ilegales, lo que no le ha convertido en el chico favorito de la policía.
+      Cuando amenazan con encarcelarle, le mandan fuera del país a pasar una temporada con su tío, un militar destinado en Japón, que vive en un diminuto piso en un barrio barato de Tokio.
+      En el país donde nacieron la mayoría de los coches modificados, las simples carreras en la calle principal han sido sustituidas por el último reto automovilístico que desafía la gravedad, las carreras de «drift» (arrastre), una peligrosa mezcla de velocidad en pistas con curvas muy cerradas y en zigzag.
+    </p>
+    <button class="btn-play" onclick="document.querySelector('video').scrollIntoView({behavior: 'smooth'})">
+      Play Reproducir
+    </button>
+  </div>
+</div>
+
+<!-- VIDEO LOCAL DIRECTO (como en tu imagen) -->
+<div class="reproductor">
+  <video controls poster="">
+    <source src="./Rápido y furioso Reto Tokio.mp4" type="video/mp4">
+    Tu navegador no soporta el video.
+  </video>
+</div>
+
+<a href="./index.html" class="btn-volver">Volver al inicio</a>
+
+</body>
+</html>

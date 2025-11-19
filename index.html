@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PERUFLIX</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header>
+  <h1>PERUFLIX</h1>
+</header>
+
+<main>
+
+  <!-- CARRUSEL 1 - Películas de estreno -->
+<section class="carousel">
+    <h2>Películas de estreno</h2>
+
+    <div class="navegacion">
+      <label class="btn-izq" id="prev1">&lt;</label>
+      <label class="btn-der" id="next1">&gt;</label>
+    </div>
+
+    <div class="slides-container">
+      <div class="slides" id="slides1">
+        <!-- TODAS LAS PELÍCULAS EN UN SOLO GRUPO -->
+        <div class="slide-group">
+          <div class="slide-item"><a href="./Pelicula1.html"><img src="https://image.tmdb.org/t/p/w500/k2VMqWWsdGiqyZ6UEjSgOoFK6mI.jpg" alt="Los Ilusionistas"></a></div>
+          <div class="slide-item"><a href="./Pelicula2.html"><img src="https://image.tmdb.org/t/p/original/wyqRElLURN9sXHQblv50gZboMTF.jpg" alt="Película 2"></a></div>
+          <div class="slide-item"><a href="./Pelicula4.html"><img src="https://image.tmdb.org/t/p/original/8Ibddnv5SpQGLp2r90bHRRBSpf5.jpg" alt="Película 4"></a></div>
+          <div class="slide-item"><a href="./Pelicula5.html"><img src="https://image.tmdb.org/t/p/original/lESwYExnRVCDscOmdvklWxZgWUp.jpg" alt="Película 5"></a></div>
+          <div class="slide-item"><a href="./Pelicula6.html"><img src="https://image.tmdb.org/t/p/original/qwdBh0102NX5fslXv3L9MSlXqKc.jpg" alt="Película 6"></a></div>
+          <div class="slide-item"><a href="./Pelicula7.html"><img src="https://image.tmdb.org/t/p/original/llpNGX1H5sQdGRHeteyFXELuoMz.jpg" alt="Película 7"></a></div>
+          <div class="slide-item"><a href="./Pelicula8.html"><img src="https://image.tmdb.org/t/p/original/b0AQYSM09AYVRKLZr6jIAP2xNq9.jpg" alt="Película 8"></a></div>
+          <div class="slide-item"><a href="./Pelicula9.html"><img src="https://image.tmdb.org/t/p/original/yKIG63pXN89EfbTA7yKpwxAU1rf.jpg" alt="Película 9"></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARRUSEL 2 - Tendencias ahora -->
+  <section class="carousel">
+    <h2>Tendencias ahora</h2>
+
+    <div class="navegacion">
+      <label class="btn-izq" id="prev2">&lt;</label>
+      <label class="btn-der" id="next2">&gt;</label>
+    </div>
+
+    <div class="slides-container">
+      <div class="slides" id="slides2">
+        <div class="slide-group">
+          <div class="slide-item"><a href="./Clasico1.html"><img src="https://image.tmdb.org/t/p/original/5t05uhX5ULn8Um2f1ZuznVvIffU.jpg" alt="Oppenheimer"></a></div>
+          <div class="slide-item"><a href="./Clasico2.html"><img src="https://image.tmdb.org/t/p/original/k1OKkkn6dekDTaZqzZK7sVI44eg.jpg" alt="Venom"></a></div>
+          <div class="slide-item"><a href="./Clasico3.html"><img src="https://image.tmdb.org/t/p/original/9OYC68a3NH5ySyTBjLQDzxhApMi.jpg" alt="Dune"></a></div>
+          <div class="slide-item"><a href="./Clasico4.html"><img src="https://image.tmdb.org/t/p/original/VMOt5scbGmBKDvkfHjZN6Ki54i.jpg" alt="Interstellar"></a></div>
+          <div class="slide-item"><a href="./Clasico6.html"><img src="https://image.tmdb.org/t/p/original/8QDQExnfNFOtabLDKqfDQuHDsIg.jpg" alt="Inception"></a></div>
+          <div class="slide-item"><a href="./Clasico7.html"><img src="https://image.tmdb.org/t/p/original/haOjJGUV00dKlZaJWgjM1UD1cJV.jpg" alt="Matrix"></a></div>
+          <div class="slide-item"><a href="./Clasico8.html"><img src="https://image.tmdb.org/t/p/original/kjQXYc2Abhy3TBgAZGzJRhN1JaV.jpg" alt="Parásitos"></a></div>
+          <div class="slide-item"><a href="./Clasico9.html"><img src="https://image.tmdb.org/t/p/original/br6krBFpaYmCSglLBWRuhui7tPc.jpg" alt="Pulp Fiction"></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Derechos reservados: Estudiantes del 4to Año de Secundaria © 2025</p>
+</footer>
+
+<script>
+// Esperar a que todo esté cargado
+document.addEventListener('DOMContentLoaded', function() {
+  
+  document.querySelectorAll('.carousel').forEach((carousel, index) => {
+    const slides = carousel.querySelector('.slides');
+    const slidesContainer = carousel.querySelector('.slides-container');
+    const prev = carousel.querySelector(`#prev${index + 1}`);
+    const next = carousel.querySelector(`#next${index + 1}`);
+    
+    // Verificar que todos los elementos existan
+    if (!slides || !slidesContainer || !prev || !next) {
+      console.error('Elementos del carrusel no encontrados');
+      return;
+    }
+    
+    let scrollAmount = 0;
+    const slideWidth = 238; // 220px width + 18px gap
+
+    next.addEventListener('click', function(e) {
+      e.preventDefault();
+      const maxScroll = slides.scrollWidth - slidesContainer.clientWidth;
+      if (scrollAmount < maxScroll) {
+        scrollAmount += slideWidth * 3;
+        if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+        slides.style.transform = `translateX(-${scrollAmount}px)`;
+      }
+    });
+
+    prev.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (scrollAmount > 0) {
+        scrollAmount -= slideWidth * 3;
+        if (scrollAmount < 0) scrollAmount = 0;
+        slides.style.transform = `translateX(-${scrollAmount}px)`;
+      }
+    });
+  });
+  
+});
+</script>
+
+</body>
+</html>

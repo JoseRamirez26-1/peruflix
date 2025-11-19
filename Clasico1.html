@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oppenheimer - PERUFLIX</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 40%, transparent 100%),
+                  url('https://image.tmdb.org/t/p/original/5t05uhX5ULn8Um2f1ZuznVvIffU.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+    }
+
+    .info {
+      max-width: 650px;
+    }
+
+    .titulo {
+      font-size: clamp(50px, 9vw, 100px);
+      font-weight: 900;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .meta {
+      color: #46d369;
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .sinopsis {
+      font-size: clamp(18px, 3vw, 26px);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .btn-play {
+      background: white;
+      color: black;
+      padding: 16px 50px;
+      border: none;
+      border-radius: 8px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      transition: 0.3s;
+    }
+
+    .btn-play:hover {
+      background: #e50914;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* VIDEO LOCAL JUSTO DEBAJO (como en tu imagen) */
+    .reproductor {
+      width: 95%;
+      max-width: 1400px;
+      margin: 60px auto;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(229,9,20,0.7);
+    }
+
+    video {
+      width: 100%;
+      display: block;
+    }
+
+    .btn-volver {
+      display: block;
+      margin: 40px auto;
+      padding: 18px 70px;
+      background: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 24px;
+      transition: 0.3s;
+      width: 500px;
+      text-align: center;
+    }
+
+    .btn-volver:hover {
+      background: #e50914;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="info">
+    <h1 class="titulo">Oppenheimer</h1>
+    <div class="meta">2025 • 3h 01min • Drama, Historia</div>
+    <p class="sinopsis">
+      Película sobre el físico J. Robert Oppenheimer y su papel como desarrollador de la bomba atómica.
+      Basada en el libro 'American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer' de Kai Bird y Martin J. Sherwin.
+    </p>
+    <button class="btn-play" onclick="document.querySelector('video').scrollIntoView({behavior: 'smooth'})">
+      Play Reproducir
+    </button>
+  </div>
+</div>
+
+<!-- VIDEO LOCAL DIRECTO (como en tu imagen) -->
+<div class="reproductor">
+  <video controls poster="">
+    <source src="./Oppenheimer.mp4" type="video/mp4">
+    Tu navegador no soporta el video.
+  </video>
+</div>
+
+<a href="./index.html" class="btn-volver">Volver al inicio</a>
+
+</body>
+</html>
